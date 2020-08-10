@@ -1,0 +1,172 @@
+html,
+body {
+  width: 100%;
+  height: 100%;
+  padding: 0;
+  margin: 0;
+  font-family: Helvetica;
+}
+
+#applicationDiv {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+#viewDiv {
+  position: absolute;
+  left: 0;
+  right: 0%;
+  top: 0;
+  height: 90.6%
+}
+#titleDiv {
+  font-weight: 400;
+  font-style: normal;
+  font-size: 1.2019rem;
+  padding: 10px;
+  opacity: 0.7;
+}
+
+#sliderContainer {
+  flex: 0 0 80px;
+  order: 2;
+  position: absolute;
+  width: 100%;
+  height: 10%;
+  bottom: 0;
+  padding: 0 12px;
+}
+
+#sliderValue {
+  flex: 0 0 100px;
+  order: 1;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  text-align: center;
+  font-size: 100%;
+}
+
+#sliderInnerContainer {
+  flex: 1 1 auto;
+  order: 2;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 0 20px;
+}
+
+#slider {
+  width: 100%;
+}
+
+/**
+* Play/Stop toggle button
+*/
+#sidebar {
+  z-index: 99;
+  position: absolute;
+  bottom: 15%;
+  right: 1%;
+  background: rgba(0, 0, 0, 0.5);
+  width: 20%;
+  text-align: center;
+}
+
+#chartpanel {
+  z-index: 99;
+  position: absolute;
+  bottom: 20%;
+  left: 2%;
+  width: 25%;
+  padding: 1%;
+  background: rgba(0, 0, 0, 0.5);
+  text-align: center;
+}
+
+#dataFilter {
+  color: white;
+  padding: 3%;
+}
+
+#playButton {
+  flex: 0 0 100px;
+  order: 3;
+  margin: 20px 0;
+}
+
+.toggle-button {
+  display: flex;
+}
+
+.paneltitle {
+  font-size: 14px;
+}
+
+.tooltip {
+  position: absolute;
+  pointer-events: none;
+  transition: opacity 200ms;
+}
+
+.tooltip>div {
+  margin: 0 auto;
+  padding: 12px;
+  border-radius: 4px;
+  box-shadow: 0px 0px 4px rgba(255, 255, 255, 0.75);
+  transform: translate3d(-50%, -125%, 0);
+}
+
+#dailyDataFilter {
+  padding-top: 12px;
+
+}
+
+.esri-legend--card__carousel-title {
+  /* to remove layer title from legend */
+  display: none;
+}
+
+.dijitDialogPaneContent {
+  margin: 2%;
+  background: #ffffff !important;
+  height: 100%;
+}
+
+.dijitDialog {
+  background: #ffffff !important;
+
+}
+
+#appDesc {
+  padding: 3%;
+}
+
+#introdialog {
+  width: 60%;
+  height: 50%;
+  left: 0px !important;
+  right: 0px;
+  top: 0px;
+  margin: auto;
+  overflow: auto;
+  text-align: center;
+}
+
+#pdfDoc {
+  width: 85%;
+  height: 100%
+}
+
+.esri-attribution {
+  color: black;
+  background: transparent !important;
+  bottom: 3% !important;
+  margin-left: 2%;
+  margin-right: 2%;
+
+}

@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no" />
+  <title>Crude Oil Storage Cost </title>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.23.0/moment.min.js"></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.3/Chart.min.js"></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.23.0/moment.min.js"></script>
+  <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/dojo/1.11.2/dijit/themes/nihilo/nihilo.css" />
+  <link rel="stylesheet" href="https://js.arcgis.com/4.12/esri/themes/dark-blue/main.css" />
+  <link rel="stylesheet" href="site-styles.css">
+  <script src="https://js.arcgis.com/4.12/"></script>
+
+</head>
+
+<body class="nihilo">
+
+  <div id="applicationDiv">
+    <div id="viewDiv">
+
+      <div id="titleDiv" class="esri-widget">Crude Oil Storage Cost</div>
+      <div id="sidebar" class="esri-widget" style="display: none;">
+        <div>
+          <h1 class="paneltitle">Choose field to show values: </h1>
+          <input type="radio" name="FieldsGroup" value="Conv_Yield" id="conY"
+            data-dojo-type="dijit/form/RadioButton">Convenience Yield
+          <input type="radio" name="FieldsGroup" value="CostOfCarry" id="coc"
+            data-dojo-type="dijit/form/RadioButton">Cost of Carry
+          <input type="radio" name="FieldsGroup" value="SpreadOptValue" id="spreadOptValue"
+            data-dojo-type="dijit/form/RadioButton" checked>Spread Option Valuation
+
+        </div>
+        <div id="dataFilter">
+          <h1>Filter data</h1>
+          <!-- <form> -->
+          <input type="radio" name="DataGroup" value="yearly" id="yearly" data-dojo-type="dijit/form/RadioButton">Yearly
+          <input type="radio" name="DataGroup" value="monthly" id="monthly" data-dojo-type="dijit/form/RadioButton"
+            checked>Monthly
+          <input type="radio" name="DataGroup" value="daily" id="daily" data-dojo-type="dijit/form/RadioButton">Daily
+          <!-- </form> -->
+          <div id="dailyDataFilter">
+
+            <select data-dojo-id="s3" onchange="getComboA(this)" name="s3" id="yearsOptions" class="yearsOptions"
+              style="width: 100px; display: none;">
+              <option value="none" selected disabled hidden>
+                Select year </option>
+              <option value="2014">2014</option>
+              <option value="2015">2015</option>
+              <option value="2016">2016</option>
+              <option value="2017">2017</option>
+              <option value="2018">2018</option>
+              <option value="2019">2019</option>
+            </select>
+          </div>
+
+          <div id="dailyDataFilter">
+            <select onchange="getSelectedMonth(this)" id="MonthsOptions" style="width: 100px; display: none;">
+              <option value="none" selected disabled hidden>
+                Select month </option>
+            </select>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <div id="sliderContainer" class="esri-widget">
+      <span id="sliderValue"></span>
+      <div id="sliderInnerContainer">
+        <div id="timeSlider"></div>
+        <div id="slider"></div>
+      </div>
+    </div>
+
+    <div id="chartpanel" class="esri-widget" style=" min-width:310px; display: none;">
+      <canvas id="data-chart" height="200px" style=" min-width:300px;"></canvas>
+    </div>
+    <!-- <div id="sliderContainer" class="esri-widget">
+        <span id="sliderValue"></span>
+        <div id="sliderInnerContainer">
+            <div id="timeSlider"></div>
+          <div id="slider"></div>
+        </div>
+      </div> -->
+  </div>
+</body>
+
+<script src="./site.js"></script>
+
+</html>
