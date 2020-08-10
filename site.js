@@ -93,12 +93,16 @@ require([
     });
 
 
-    var dialogContent = "<div id='appDesc'> App Description - Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum</div>";
-    dialogContent += '<iframe id="pdfDoc" src="Market_Structure_Inventories_and_Oil_Prices_An_Empirical_Analysis.pdf">';
-
+    var dialogContent = "<div class= 'row'> <div class='col-md-8' id='appDesc'> <p> <strong> Project Abstract </strong> </p>" +
+        "Understanding the relationship between crude oil prices and inventory levels is critical for policymakers and economic actors. The size of the ‘basis,’ or spread between spot and futures prices, reflects the level of inventories and can trigger arbitrage trading. The basis also reflects broader underlying market conditions and can be useful to policymakers such as the International Energy Agency and OPEC attempting to monitor and stabilize world oil markets.</div>"
+    dialogContent += '<div class="card col-md-3">' +
+        '  <img class="card-img-top"  src="doccover.jpg">' +
+        '	<a href="https://www.kapsarc.org/research/publications/market-structure-inventories-and-oil-prices-an-empirical-analysis/"  target="_blank" role="button" class="btn btn-light">Visit Project Page</a>' +
+        ' </div>'
 
     intro = new Dialog({
         id: 'introdialog',
+        title: 'Crude Oil Storage Cost Application',
         content: dialogContent,
         onCancel: function () {
             document.getElementById("chartpanel").style.display = "block";
@@ -115,7 +119,6 @@ require([
 
     view.ui.add(legend, "top-left");
     view.ui.add(titleDiv, "top-right")
-    // view.ui.add(attribution, "bottom-left");
 
     // time slider widget initialization
     const timeSlider = new TimeSlider({
@@ -197,7 +200,6 @@ require([
     { PortName: "Ulsan", color: "rgba(78,170,245,1)" }
     ]
 
-    // portindex = portcolors.findIndex(x => x.PortName === "Jamnagar");
 
     // check which field is chosen
     on(dom.byId("spreadOptValue"), "click", function () {
@@ -240,13 +242,24 @@ require([
                     labels: {
                         fontColor: "white",
                     },
-                    align: "middle"
+                    align: "middle",
+                    // cursor: "pointer"
+
+                    onHover: function (e) {
+                        e.target.style.cursor = 'pointer';
+                    }
+                },
+                hover: {
+                    onHover: function (e) {
+                        var point = this.getElementAtEvent(e);
+                        if (point.length) e.target.style.cursor = 'pointer';
+                        else e.target.style.cursor = 'default';
+                    }
                 },
                 scales: {
                     yAxes: [{
                         ticks: {
                             fontColor: "white",
-
                         }
                     }],
                     xAxes: [{
@@ -255,10 +268,46 @@ require([
 
                         }
                     }]
+                },
+                tooltips: {
+                    callbacks: {
+                        label: function (tooltipItem, data) {
+                            var label = data.datasets[tooltipItem.datasetIndex].label || '';
+
+                            if (fieldChosen == 'SpreadOptValue') {
+                                if (label) {
+                                    label += '';
+                                }
+                                label += " - (SOV) :" + Math.round(tooltipItem.yLabel * 100) / 100;
+                                return label;
+                            }
+                            else if (fieldChosen == "Conv_Yield") {
+
+                                if (label) {
+                                    label += ': ';
+                                }
+                                label += " - (CY) :" + (tooltipItem.yLabel * 100).toFixed(2) + ' %';
+
+                                return label;
+
+                            }
+                            else if (fieldChosen == "CostOfCarry") {
+
+                                if (label) {
+                                    label += ':<br/> ';
+                                }
+                                label += " - (COC) :" + (tooltipItem.yLabel * 100).toFixed(2) + ' %';
+                                return label;
+
+                            }
+                        },
+
+
+                    }
                 }
             },
             data: {
-                labels: ["3,Sep", "4,Sep", "5,Sep", "6,Sep", "7,Sep", "10,Sep", "11,Sep", "12,Sep", "13,Sep", "14,Sep", "17,Sep", "18,Sep", "19,Sep", "20,Sep", "21,Sep", "24,Sep", "25,Sep", "26,Sep", "27,Sep", "28,Sep"],
+                labels: ["3 Sep", "4 Sep", "5 Sep", "6 Sep", "7 Sep", "10 Sep", "11 Sep", "12 Sep", "13 Sep", "14 Sep", "17 Sep", "18 Sep", "19 Sep", "20 Sep", "21 Sep", "24 Sep", "25 Sep", "26 Sep", "27 Sep", "28 Sep"],
                 datasets: [
                     {
                         label: "Rotterdam",
@@ -271,83 +320,83 @@ require([
                         data: [
 
                             {
-                                x: "3,Sep",
+                                x: "3 Sep",
                                 y: 3.03712296
                             },
                             {
-                                x: "4,Sep",
+                                x: "4 Sep",
                                 y: 2.70704122
                             },
                             {
-                                x: "5,Sep",
+                                x: "5 Sep",
                                 y: 1.40826384
                             },
                             {
-                                x: "6,Sep",
+                                x: "6 Sep",
                                 y: 0.88820402
                             },
                             {
-                                x: "7,Sep",
+                                x: "7 Sep",
                                 y: 2.4730653
                             },
                             {
-                                x: "10,Sep",
+                                x: "10 Sep",
                                 y: 3.7000076
                             },
                             {
-                                x: "11,Sep",
+                                x: "11 Sep",
                                 y: 4.49645409
                             },
                             {
-                                x: "12,Sep",
+                                x: "12 Sep",
                                 y: 4.27086464
                             },
                             {
-                                x: "13,Sep",
+                                x: "13 Sep",
                                 y: 1.65219047
                             },
                             {
-                                x: "14,Sep",
+                                x: "14 Sep",
                                 y: 2.35258395
                             },
                             {
-                                x: "17,Sep",
+                                x: "17 Sep",
                                 y: 2.83311828
                             },
                             {
-                                x: "18,Sep",
+                                x: "18 Sep",
                                 y: 3.54702731
                             },
                             {
-                                x: "19,Sep",
+                                x: "19 Sep",
                                 y: 3.4374512
                             },
                             {
-                                x: "20,Sep",
+                                x: "20 Sep",
                                 y: 2.50692646
                             },
                             {
-                                x: "21,Sep",
+                                x: "21 Sep",
                                 y: 2.48325055
                             },
                             {
-                                x: "24,Sep",
+                                x: "24 Sep",
                                 y: 4.93923534
                             },
                             {
-                                x: "25,Sep",
+                                x: "25 Sep",
                                 y: 4.14507273
                             },
                             {
-                                x: "26,Sep",
+                                x: "26 Sep",
                                 y: 2.53555581
                             },
                             {
-                                x: "27,Sep",
+                                x: "27 Sep",
                                 y: 3.14005969
                             },
                             {
-                                x: "28,Sep",
+                                x: "28 Sep",
                                 y: 3.75389467
                             }
                         ]
@@ -413,7 +462,7 @@ require([
                         var featureAttributes = results.features[i].attributes;
                         formattedlabels = locale.format(new Date(featureAttributes.Date), {
                             selector: 'date',
-                            datePattern: 'dd,MMM'
+                            datePattern: 'dd MMM'
                         });
 
                         portdata.push({ x: formattedlabels, y: featureAttributes[fieldChosen] });
@@ -452,12 +501,6 @@ require([
 
     //initial slider settings for monthly data
     view.whenLayerView(MonthlyDataLayer).then(function (lv) {
-
-        //overwite current attributions to add  Bloomberg and Clarksons
-        // var attribs =  dojo.query(".esri-attribution__sources")[0];
-        // console.log(dojo.query(".esri-attribution__sources"))
-        // attribs.innerHTML = "Esri, USGS, FAO, NOAA | Bloomberg, Clarksons";
-
         timeLayerView = lv;
         timeSlider.fullTimeExtent = {
             start: MonthlyDataLayer.timeInfo.fullTimeExtent.start,
@@ -529,29 +572,34 @@ require([
 
                 // highlight the hovered feature or hide the tooltip
                 if (results.length) {
+                    document.getElementById("viewDiv").style.cursor = "pointer";
+
                     var graphic = results[0].graphic;
                     var screenPoint = hit.screenPoint;
                     highlight = layerview.highlight(graphic);
                     if (fieldChosen == 'SpreadOptValue') {
                         tooltip.show(
                             screenPoint,
-                            "Port Name: " + graphic.attributes["Location"] + "<br/> Spread Option Valuation = " + (+graphic.getAttribute(fieldChosen)).toFixed(3) + ""
+                            // "Port Name: " + graphic.attributes["Location"] + "<br/> Spread Option Valuation = " + Math.round(+graphic.getAttribute(fieldChosen) * 100) / 100 + ""
+                            "Port Name: " + graphic.attributes["Location"] + "<br/> SOV = " + Math.round(+graphic.getAttribute(fieldChosen) * 100) / 100 + ""
+
                         );
                     }
                     else if (fieldChosen == "Conv_Yield") {
                         tooltip.show(
                             screenPoint,
-                            "Port Name: " + graphic.attributes["location"] + "<br/> Convenience Yield = " + ((+graphic.getAttribute(fieldChosen)) * 100).toFixed(2) + "%"
+                            "Port Name: " + graphic.attributes["Location"] + "<br/> CY = " + ((+graphic.getAttribute(fieldChosen)) * 100).toFixed(2) + "%"
                         );
                     }
                     else {
                         tooltip.show(
                             screenPoint,
-                            "Port Name: " + graphic.attributes["location"] + "<br/> Cost of Carry = " + ((+graphic.getAttribute(fieldChosen)) * 100).toFixed(2) + "%"
+                            "Port Name: " + graphic.attributes["Location"] + "<br/> COC = " + ((+graphic.getAttribute(fieldChosen)) * 100).toFixed(2) + "%"
                         );
                     }
 
                 } else {
+                    document.getElementById("viewDiv").style.cursor = "default";
                     tooltip.hide();
                 }
             });
@@ -620,6 +668,7 @@ require([
         var currentrenderer = currentLayer.renderer.visualVariables["0"].valueExpression
         currentLayer = YearlyDataLayer;
         timeperiod = "yearly"
+        document.getElementById("chartpanel").style.display = "block";
         document.getElementById("yearsOptions").style.display = "none";
         document.getElementById("MonthsOptions").style.display = "none";
         map.removeAll();

@@ -4,7 +4,7 @@ body {
   height: 100%;
   padding: 0;
   margin: 0;
-  font-family: Helvetica;
+   font-family: "Avenir Next W00","Helvetica Neue",Helvetica,Arial,sans-serif;
 }
 
 #applicationDiv {
@@ -75,6 +75,7 @@ body {
   background: rgba(0, 0, 0, 0.5);
   width: 20%;
   text-align: center;
+  padding:1%;
 }
 
 #chartpanel {
@@ -93,18 +94,25 @@ body {
   padding: 3%;
 }
 
+#dataFilter h1{
+  font-size: 24px;
+  font-weight: bold;
+}
 #playButton {
   flex: 0 0 100px;
   order: 3;
   margin: 20px 0;
 }
-
+input[type="radio"]{
+  margin: 0 5px 0 10px;
+}
 .toggle-button {
   display: flex;
 }
 
 .paneltitle {
   font-size: 14px;
+  font-weight: bold;
 }
 
 .tooltip {
@@ -132,34 +140,29 @@ body {
 }
 
 .dijitDialogPaneContent {
-  margin: 2%;
+  /* margin: 2%; */
   background: #ffffff !important;
-  height: 100%;
 }
 
 .dijitDialog {
   background: #ffffff !important;
-
+  vertical-align: middle;
 }
-
+.dijitDialogTitle{
+  color: black  !important;
+}
 #appDesc {
   padding: 3%;
 }
 
 #introdialog {
   width: 60%;
-  height: 50%;
+  /* height: 60%; */
   left: 0px !important;
   right: 0px;
-  top: 0px;
+  top: 10% !important;
   margin: auto;
-  overflow: auto;
-  text-align: center;
-}
-
-#pdfDoc {
-  width: 85%;
-  height: 100%
+  overflow-y: auto;
 }
 
 .esri-attribution {

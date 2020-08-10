@@ -5,14 +5,21 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no" />
   <title>Crude Oil Storage Cost </title>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.23.0/moment.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.3/Chart.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.23.0/moment.min.js"></script>
   <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/dojo/1.11.2/dijit/themes/nihilo/nihilo.css" />
   <link rel="stylesheet" href="https://js.arcgis.com/4.12/esri/themes/dark-blue/main.css" />
   <link rel="stylesheet" href="site-styles.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.23.0/moment.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.3/Chart.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.23.0/moment.min.js"></script>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+    integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+    integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+    crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+    integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+    crossorigin="anonymous"></script>
   <script src="https://js.arcgis.com/4.12/"></script>
-
 </head>
 
 <body class="nihilo">
@@ -24,11 +31,11 @@
         <div>
           <h1 class="paneltitle">Choose field to show values: </h1>
           <input type="radio" name="FieldsGroup" value="Conv_Yield" id="conY"
-            data-dojo-type="dijit/form/RadioButton">Convenience Yield
+            data-dojo-type="dijit/form/RadioButton">Convenience Yield (CY)
           <input type="radio" name="FieldsGroup" value="CostOfCarry" id="coc"
-            data-dojo-type="dijit/form/RadioButton">Cost of Carry
+            data-dojo-type="dijit/form/RadioButton">Cost of Carry (COC)
           <input type="radio" name="FieldsGroup" value="SpreadOptValue" id="spreadOptValue"
-            data-dojo-type="dijit/form/RadioButton" checked>Spread Option Valuation
+            data-dojo-type="dijit/form/RadioButton" checked>Spread Option Valuation (SOV)
 
         </div>
         <div id="dataFilter">
