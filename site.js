@@ -34,8 +34,7 @@ require([
     });
 
     var YearlyDataLayer = new FeatureLayer({
-        // url: "https://ags.kapsarc.org/arcgis/rest/services/Hosted/WM_OilSpreadData_WFL1/FeatureServer/0?token=BZmc349NHn3am-bixz0V8niT8O5EHK7456VaxxPEGk--GurRS8PsjsHDm1d8hCGFqhUkfWsXOOQ6fxvpEDE1zCHJ0sHTdvENBSsBD51KP4JLK3LEWyqLZmqtsJnfzfpAnTUbY9y7r_5-IQ1fkFJx0zhQ_aBG94QS244U3hZGFpWguv6pLFxmzDoI5QcgNsZB"
-url: "https://services5.arcgis.com/lzyg69ydk6k0HkXr/arcgis/rest/services/Crude_Oil_Storage_Cost/FeatureServer/0"
+        url: "https://services5.arcgis.com/lzyg69ydk6k0HkXr/arcgis/rest/services/Crude_Oil_Storage_Cost/FeatureServer/0"
         , outFields: ["Year", "Conv_Yield", "CostOfCarry"]
         ,
         interval: {
@@ -45,19 +44,15 @@ url: "https://services5.arcgis.com/lzyg69ydk6k0HkXr/arcgis/rest/services/Crude_O
         }
     });
     var MonthlyDataLayer = new FeatureLayer({
-        // url: "https://ags.kapsarc.org/arcgis/rest/services/Hosted/WM_OilSpreadData_WFL1/FeatureServer/1?token=BZmc349NHn3am-bixz0V8niT8O5EHK7456VaxxPEGk--GurRS8PsjsHDm1d8hCGFqhUkfWsXOOQ6fxvpEDE1zCHJ0sHTdvENBSsBD51KP4JLK3LEWyqLZmqtsJnfzfpAnTUbY9y7r_5-IQ1fkFJx0zhQ_aBG94QS244U3hZGFpWguv6pLFxmzDoI5QcgNsZB"
         url: "https://services5.arcgis.com/lzyg69ydk6k0HkXr/arcgis/rest/services/Crude_Oil_Storage_Cost/FeatureServer/1"
-
         , outFields: ["Year", "Conv_Yield", "CostOfCarry"]
     });
 
     var DailyDataLayer = new FeatureLayer({
-        // url: "https://ags.kapsarc.org/arcgis/rest/services/Hosted/WM_OilSpreadData_WFL1/FeatureServer/2?token=BZmc349NHn3am-bixz0V8niT8O5EHK7456VaxxPEGk--GurRS8PsjsHDm1d8hCGFqhUkfWsXOOQ6fxvpEDE1zCHJ0sHTdvENBSsBD51KP4JLK3LEWyqLZmqtsJnfzfpAnTUbY9y7r_5-IQ1fkFJx0zhQ_aBG94QS244U3hZGFpWguv6pLFxmzDoI5QcgNsZB"
         url: "https://services5.arcgis.com/lzyg69ydk6k0HkXr/arcgis/rest/services/Crude_Oil_Storage_Cost/FeatureServer/2"
-        , outFields: ["Conv_Yield", "CostOfCarry"]   
+        , outFields: ["Conv_Yield", "CostOfCarry"]
     });
 
-    // queryTaskDaily = new QueryTask("https://ags.kapsarc.org/arcgis/rest/services/Hosted/WM_OilSpreadData_WFL1/FeatureServer/2?token=BZmc349NHn3am-bixz0V8niT8O5EHK7456VaxxPEGk--GurRS8PsjsHDm1d8hCGFqhUkfWsXOOQ6fxvpEDE1zCHJ0sHTdvENBSsBD51KP4JLK3LEWyqLZmqtsJnfzfpAnTUbY9y7r_5-IQ1fkFJx0zhQ_aBG94QS244U3hZGFpWguv6pLFxmzDoI5QcgNsZB");
     queryTaskDaily = new QueryTask("https://services5.arcgis.com/lzyg69ydk6k0HkXr/arcgis/rest/services/Crude_Oil_Storage_Cost/FeatureServer/2");
 
     query = new Query();
@@ -68,7 +63,6 @@ url: "https://services5.arcgis.com/lzyg69ydk6k0HkXr/arcgis/rest/services/Crude_O
 
     //charts queries:
     Yearlychartquery = new Query();
-    // YearlychartqueryTask = new QueryTask("https://ags.kapsarc.org/arcgis/rest/services/Hosted/WM_OilSpreadData_WFL1/FeatureServer/1?token=BZmc349NHn3am-bixz0V8niT8O5EHK7456VaxxPEGk--GurRS8PsjsHDm1d8hCGFqhUkfWsXOOQ6fxvpEDE1zCHJ0sHTdvENBSsBD51KP4JLK3LEWyqLZmqtsJnfzfpAnTUbY9y7r_5-IQ1fkFJx0zhQ_aBG94QS244U3hZGFpWguv6pLFxmzDoI5QcgNsZB");
     YearlychartqueryTask = new QueryTask("https://services5.arcgis.com/lzyg69ydk6k0HkXr/arcgis/rest/services/Crude_Oil_Storage_Cost/FeatureServer/1");
 
     Yearlychartquery.outFields = ["date", "year", "location", "spreadoptvalue", "conv_yield", "costofcarry"];
@@ -98,25 +92,25 @@ url: "https://services5.arcgis.com/lzyg69ydk6k0HkXr/arcgis/rest/services/Crude_O
         expanded: false
     });
 
-  
+
     var dialogContent = "<div id='appDesc'> Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum</div>";
     dialogContent += '<iframe id="pdfDoc" src="Market_Structure_Inventories_and_Oil_Prices_An_Empirical_Analysis.pdf">';
 
 
-    intro = new Dialog ({
-id: 'introdialog',
-        content:dialogContent ,
-        onCancel:function(){ 
+    intro = new Dialog({
+        id: 'introdialog',
+        content: dialogContent,
+        onCancel: function () {
             document.getElementById("chartpanel").style.display = "block";
             document.getElementById("sidebar").style.display = "block";
-        } 
-        });
+        }
+    });
     intro.show()
 
 
-map.add(MonthlyDataLayer, 0);
+    map.add(MonthlyDataLayer, 0);
     //  Setup UI
-    var sliderValue = document.getElementById("sliderValue"); /////////
+    // var sliderValue = document.getElementById("sliderValue");
     var titleDiv = document.getElementById("titleDiv");
 
     view.ui.add(legend, "top-left");
@@ -128,7 +122,7 @@ map.add(MonthlyDataLayer, 0);
         container: "timeSlider",
         // mode: "time-window",
     });
-    
+
     timeSlider.watch("timeExtent", function (value) {
 
         // update laye view filter to reflect current timeExtent
@@ -154,7 +148,7 @@ map.add(MonthlyDataLayer, 0);
         chartyear = timeSlider.timeExtent.start.toUTCString().split(' ')[3];
         chartmonth = timeSlider.timeExtent.start.toString().split(' ')[1];
         chartlocation = "Rotterdam"
-// check if chart already exist
+        // check if chart already exist
         if (chartinilization < 1) {
             initializechart();
             chartinilization = 1;
@@ -174,7 +168,7 @@ map.add(MonthlyDataLayer, 0);
     const chartcanvas = document.getElementById("data-chart");
     var chartinilization = 0
 
-   
+
 
     // plugin to change chart bg color
     Chart.pluginService.register({
@@ -209,7 +203,6 @@ map.add(MonthlyDataLayer, 0);
     on(dom.byId("spreadOptValue"), "click", function () {
         fieldChosen = document.getElementById('spreadOptValue').value;
         currentLayer.renderer.visualVariables["0"].valueExpression = "$feature.spreadOptValue";
-        console.log(currentLayer.renderer.visualVariables["0"].valueExpression)
         currentLayer.renderer = currentLayer.renderer;
         getchartdata(chartyear, chartmonth, selectedports)
     });
@@ -224,7 +217,6 @@ map.add(MonthlyDataLayer, 0);
         getchartdata(chartyear, chartmonth, selectedports)
         currentLayer.renderer.visualVariables["0"].valueExpression = "$feature.CostOfCarry";
         currentLayer.renderer = currentLayer.renderer;
-        console.log(currentLayer.renderer.visualVariables["0"].valueExpression)
     });
 
     function updatechartdata(chartlabels, newdataset) {
@@ -235,7 +227,6 @@ map.add(MonthlyDataLayer, 0);
     }
 
     function initializechart() {
-        console.log("initialize chart")
         //initial data is hardcoded for now, it can e changed or aoutomated 
         DataChart = new Chart(chartcanvas.getContext("2d"), {
             type: "line",
@@ -368,7 +359,6 @@ map.add(MonthlyDataLayer, 0);
     //get new data when slider changes
     // chart is currently disabled when daily view is chosen
     function getchartdata(chartyear, chartmonth, selectedports) {
-        console.log("chartdata")
         DataChart.config.data.datasets = [];
         var chartlabels = [];
         var chartdata = [];
@@ -411,19 +401,13 @@ map.add(MonthlyDataLayer, 0);
                 }, console.error);
             }
         }
-            else if (timeperiod == "monthly" ) {
-                console.log("1")
+        else if (timeperiod == "monthly") {
             for (j = 0; j < selectedports.length; j++) {
                 monthlychartquery.where = "year  = '" + chartyear + "' AND Location ='" + selectedports[j] + "' AND Month ='" + chartmonth + "' ";
                 monthlychartqueryTask.execute(monthlychartquery).then(function (results) {
-                    console.log("results")
-                    console.log(results)
-
                     portdata = []
                     portname = results.features[j].attributes.Location;
-                    console.log(portname)
                     var resultCount = results.features.length;
-                    console.log(resultCount)
                     var formattedlabels;
                     for (var i = 0; i < resultCount; i++) {
                         var featureAttributes = results.features[i].attributes;
@@ -460,21 +444,19 @@ map.add(MonthlyDataLayer, 0);
                     }
                     chartdata.push(newdataset)
                     chartlabels.sort();
-                    console.log(newdataset)
-
                     updatechartdata(chartlabels, newdataset);
                 }, console.error);
             }
         }
     }
- 
+
     //initial slider settings for monthly data
     view.whenLayerView(MonthlyDataLayer).then(function (lv) {
 
         //overwite current attributions to add  Bloomberg and Clarksons
         // var attribs =  dojo.query(".esri-attribution__sources")[0];
-                // console.log(dojo.query(".esri-attribution__sources"))
-// attribs.innerHTML = "Esri, USGS, FAO, NOAA | Bloomberg, Clarksons";
+        // console.log(dojo.query(".esri-attribution__sources"))
+        // attribs.innerHTML = "Esri, USGS, FAO, NOAA | Bloomberg, Clarksons";
 
         timeLayerView = lv;
         timeSlider.fullTimeExtent = {
@@ -524,7 +506,7 @@ map.add(MonthlyDataLayer, 0);
         });
     });
 
-// When the layerview is available, setup hovering interactivity
+    // When the layerview is available, setup hovering interactivity
     function setupHoverTooltip(datalayer, layerview) {
         var promise;
         var highlight;
@@ -548,9 +530,6 @@ map.add(MonthlyDataLayer, 0);
                 // highlight the hovered feature or hide the tooltip
                 if (results.length) {
                     var graphic = results[0].graphic;
-                    console.log(graphic)
-
-                    console.log(graphic.attributes["Location"])
                     var screenPoint = hit.screenPoint;
                     highlight = layerview.highlight(graphic);
                     if (fieldChosen == 'SpreadOptValue') {
@@ -581,7 +560,7 @@ map.add(MonthlyDataLayer, 0);
 
 
     //Creates a tooltip to display chosen value.
- 
+
     function createTooltip() {
         var tooltip = document.createElement("div");
         var style = tooltip.style;
@@ -648,14 +627,12 @@ map.add(MonthlyDataLayer, 0);
         view.whenLayerView(currentLayer).then(function (lv) {
             currentLayer.renderer.visualVariables["0"].valueExpression = currentrenderer;
             timeLayerView = lv;
-            console.log(currentLayer.id)
             sliderUnit = "years";
             sliderValues = [
                 new Date("Jan 01 2017 03:00:00 GMT+0300"),
                 new Date("Jan 01 2018 00:00:00 GMT+0300")
 
             ]
-            console.log(sliderValues)
             setTimeSlider(currentLayer, sliderUnit, sliderValues)
             setupHoverTooltip(currentLayer, timeLayerView)
         })
@@ -671,10 +648,8 @@ map.add(MonthlyDataLayer, 0);
         document.getElementById("chartpanel").style.display = "block";
         document.getElementById("yearsOptions").style.display = "none";
         document.getElementById("MonthsOptions").style.display = "none";
-        console.log("monthly")
         map.removeAll();
         map.add(currentLayer, 0);
-        console.log(map)
         view.whenLayerView(currentLayer).then(function (lv) {
             currentLayer.renderer.visualVariables["0"].valueExpression = currentrenderer;
             timeLayerView = lv;
@@ -683,7 +658,6 @@ map.add(MonthlyDataLayer, 0);
                 new Date(2018, 1, 1),
                 new Date(2018, 2, 1)
             ]
-            console.log(sliderValues)
             setTimeSlider(currentLayer, sliderUnit, sliderValues);
             setupHoverTooltip(currentLayer, timeLayerView);
 
@@ -694,15 +668,13 @@ map.add(MonthlyDataLayer, 0);
         currentrenderer = currentLayer.renderer.visualVariables["0"].valueExpression
         currentLayer = DailyDataLayer;
         timeperiod = "daily"
-
-        console.log("daily")
         map.removeAll();
         document.getElementById("yearsOptions").style.display = "inline-block";
         document.getElementById("chartpanel").style.display = "none";
 
     });
 
-// when daily view is chosen, get selected year/ month
+    // when daily view is chosen, get selected year/ month
     window.getYear = function (year, month) {
         query.where = "year  = '" + year + "' AND month ='" + month + "'";
         var resultItems = [];
@@ -718,12 +690,12 @@ map.add(MonthlyDataLayer, 0);
                 resultItems.push(formatteddate);
                 datesRange.push(new Date("\"" + formatteddate + "\"" + "03:00:00 GMT+0300"))
             }
-         
+
             var firstdate = datesRange[0]
             var lastdate = datesRange[datesRange.length - 1]
             currentLayer = DailyDataLayer;
             map.add(currentLayer, 0);
-          
+
             view.whenLayerView(currentLayer).then(function (lv) {
                 currentLayer.renderer.visualVariables["0"].valueExpression = currentrenderer;
                 timeLayerView = lv;
@@ -739,9 +711,9 @@ map.add(MonthlyDataLayer, 0);
                         dates:
                             datesRange
                     }
-                    timeSlider.min= firstdate;
-                    timeSlider.max= lastdate;
-               
+                timeSlider.min = firstdate;
+                timeSlider.max = lastdate;
+
                 setupHoverTooltip(currentLayer, timeLayerView)
 
             });//when end
@@ -784,7 +756,6 @@ function getComboA(selectObject) {
 
 function getSelectedMonth(selectObject) {
     selectedMonth = selectObject.value;
-    console.log("getSelectedMonth")
     getYear(selectedYear, selectedMonth);
 }
 
