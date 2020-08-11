@@ -689,7 +689,12 @@ require([
             });
     });
 
-
+    $(document).ready(function () {
+        $("#chartpanel").draggable({ cursor: "move" }).resizable({
+            handles: 'se,e,w',
+            aspectRatio: 14 / 9,
+        });
+    });
     on(dom.byId("monthly"), "click", function () {
         var currentrenderer = currentLayer.renderer.visualVariables["0"].valueExpression
         currentLayer = MonthlyDataLayer;
