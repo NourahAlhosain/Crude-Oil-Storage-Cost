@@ -243,8 +243,18 @@ require([
                         fontColor: "white",
                     },
                     align: "middle",
-                    // cursor: "pointer"
-
+                    onClick: function (e, legendItem) {
+                        //to remove data set instead of the default hide behavior 
+                        var legendlabel = legendItem.text;
+                        var ci = this.chart;
+                        portindex = selectedports.indexOf(legendlabel);
+                        if (portindex > -1) {
+                            selectedports.splice(portindex, 1);
+                        }
+                        console.log(selectedports)
+                        getchartdata(chartyear, chartmonth, selectedports);
+                        ci.update();
+                    },
                     onHover: function (e) {
                         e.target.style.cursor = 'pointer';
                     }
@@ -542,9 +552,9 @@ require([
                 chartlocation = graphic.attributes.Location;
                 if (selectedports.indexOf(chartlocation) === -1) {
                     selectedports.push(chartlocation)
+                    DataChart.config.data.datasets = [];
+                    getchartdata(chartyear, chartmonth, selectedports);
                 }
-                DataChart.config.data.datasets = [];
-                getchartdata(chartyear, chartmonth, selectedports);
             }
         });
     });
@@ -580,7 +590,6 @@ require([
                     if (fieldChosen == 'SpreadOptValue') {
                         tooltip.show(
                             screenPoint,
-                            // "Port Name: " + graphic.attributes["Location"] + "<br/> Spread Option Valuation = " + Math.round(+graphic.getAttribute(fieldChosen) * 100) / 100 + ""
                             "Port Name: " + graphic.attributes["Location"] + "<br/> SOV = " + Math.round(+graphic.getAttribute(fieldChosen) * 100) / 100 + ""
 
                         );
