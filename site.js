@@ -284,7 +284,7 @@ require([
                             else if (fieldChosen == "Conv_Yield") {
 
                                 if (label) {
-                                    label += ': ';
+                                    label += '';
                                 }
                                 label += " - (CY) :" + (tooltipItem.yLabel * 100).toFixed(2) + ' %';
 
@@ -294,7 +294,7 @@ require([
                             else if (fieldChosen == "CostOfCarry") {
 
                                 if (label) {
-                                    label += ':<br/> ';
+                                    label += '';
                                 }
                                 label += " - (COC) :" + (tooltipItem.yLabel * 100).toFixed(2) + ' %';
                                 return label;
