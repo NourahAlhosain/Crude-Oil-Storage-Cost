@@ -93,10 +93,12 @@ require([
     });
 
 
-    var dialogContent = "<div class= 'row'> <div class='col-md-8' id='appDesc'> <p> <strong> Project Abstract </strong> </p>" +
-        "Understanding the relationship between crude oil prices and inventory levels is critical for policymakers and economic actors. The size of the ‘basis,’ or spread between spot and futures prices, reflects the level of inventories and can trigger arbitrage trading. The basis also reflects broader underlying market conditions and can be useful to policymakers such as the International Energy Agency and OPEC attempting to monitor and stabilize world oil markets.</div>"
-    dialogContent += '<div class="card col-md-3">' +
-        '  <img class="card-img-top"  src="./resources/doccover.jpg">' +
+    var dialogContent = "<div class= 'row justify-content-center'> <div class='col-md-8 h-100' id='appDesc'>" +
+       " <p>This model represents a spread option-based formulation that adds a locational dimension to the conventional storage theory and is based on the prices of crude oil at two different locations, factoring in costs of storage and transportation, and the time required to transport oil between them.  </p>" +
+       "<p>This methodology offers a viable alternative to the traditional cost of carry approach; it can also estimate implied convenience yields and the shadow price of inventories, aiding commodity trading strategies. </p>"+
+      "The three key drivers of inventories—the cost of carry, convenience yield and spread option value—are estimated for eight primary international crude oil storage hubs located at major seaports using daily data from December 21, 2015 to January 25, 2019. </div>"
+        dialogContent += '<div class="card col-md-3 align-self-center h-100">' +
+        '  <img class="card-img-top" src="./resources/doccover.jpg">' +
         '	<a href="https://www.kapsarc.org/research/publications/market-structure-inventories-and-oil-prices-an-empirical-analysis/"  target="_blank" role="button" class="btn btn-light">Visit Project Page</a>' +
         ' </div>'
 
@@ -288,7 +290,7 @@ require([
                                 if (label) {
                                     label += '';
                                 }
-                                label += " - (SOV): " + Math.round(tooltipItem.yLabel * 100) / 100;
+                                label += " - (SoV): " + Math.round(tooltipItem.yLabel * 100) / 100 + ' $/Bbl';
                                 return label;
                             }
                             else if (fieldChosen == "Conv_Yield") {
@@ -306,7 +308,7 @@ require([
                                 if (label) {
                                     label += '';
                                 }
-                                label += " - (COC): " + (tooltipItem.yLabel * 100).toFixed(2) + ' %';
+                                label += " - (CoC): " + (tooltipItem.yLabel * 100).toFixed(2) + ' %';
                                 return label;
 
                             }
@@ -590,7 +592,7 @@ require([
                     if (fieldChosen == 'SpreadOptValue') {
                         tooltip.show(
                             screenPoint,
-                            "Port Name: " + graphic.attributes["Location"] + "<br/> SOV = " + Math.round(+graphic.getAttribute(fieldChosen) * 100) / 100 + ""
+                            "Port Name: " + graphic.attributes["Location"] + "<br/> SoV = " + Math.round(+graphic.getAttribute(fieldChosen) * 100) / 100 + " $/Bbl"
 
                         );
                     }
@@ -603,7 +605,7 @@ require([
                     else {
                         tooltip.show(
                             screenPoint,
-                            "Port Name: " + graphic.attributes["Location"] + "<br/> COC = " + ((+graphic.getAttribute(fieldChosen)) * 100).toFixed(2) + "%"
+                            "Port Name: " + graphic.attributes["Location"] + "<br/> CoC = " + ((+graphic.getAttribute(fieldChosen)) * 100).toFixed(2) + "%"
                         );
                     }
 
