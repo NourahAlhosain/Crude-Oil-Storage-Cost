@@ -92,25 +92,35 @@ require([
         expanded: false
     });
 
-
-    var dialogContent = "<div class= 'row justify-content-center'> <div class='col-md-8 h-100' id='appDesc'>" +
-       " <p>This model represents a spread option-based formulation that adds a locational dimension to the conventional storage theory and is based on the prices of crude oil at two different locations, factoring in costs of storage and transportation, and the time required to transport oil between them.  </p>" +
+    var Dialogtitle = "Crude Oil Storage Cost Application <sub>βeta</sub> ";
+    var dialogContent = "<div class= 'row justify-content-center'> <div class='col-md-8 col-sm-12 h-100' id='appDesc'>" +
+       " <p>This model represents a spread option-based formulation that adds another dimension --location-- to the conventional storage theory and is based on the prices of crude oil at a number of different locations, factoring in costs of storage and transportation, and the time required to transport oil between them.</p>" +
        "<p>This methodology offers a viable alternative to the traditional cost of carry approach; it can also estimate implied convenience yields and the shadow price of inventories, aiding commodity trading strategies. </p>"+
-      "The three key drivers of inventories - the cost of carry, convenience yield and spread option value - are estimated for eight primary international crude oil storage hubs located at major seaports using daily data from December 21, 2015 to January 25, 2019. </div>"
+      "The three key drivers of inventories -the cost of carry, convenience yield and spread option value- are estimated for eight primary international crude oil storage hubs located at major seaports using daily data from December 21, 2015 to January 25, 2019.</div>"
         dialogContent += '<div class="card col-md-3 align-self-center h-100">' +
         '  <img class="card-img-top" src="./resources/doccover.jpg">' +
-        '	<a href="https://www.kapsarc.org/research/publications/market-structure-inventories-and-oil-prices-an-empirical-analysis/"  target="_blank" role="button" class="btn btn-light">Visit Project Page</a>' +
+        '	<a href="https://www.kapsarc.org/research/publications/market-structure-inventories-and-oil-prices-an-empirical-analysis/"  target="_blank" role="button" class="btn btn-light text-wrap">Visit Project Page</a>' +
         ' </div>'
 
     intro = new Dialog({
         id: 'introdialog',
-        title: 'Crude Oil Storage Cost Application',
+        title: Dialogtitle,
         content: dialogContent,
         onCancel: function () {
             document.getElementById("chartpanel").style.display = "block";
             document.getElementById("sidebar").style.display = "block";
         }
     });
+
+    mobileintro = new Dialog({
+        id: 'mobileintro',
+        content: 'This application is best viewed on a Desktop/Laptop, your current device migh not display properly.',
+        // onCancel: function () {
+            // document.getElementById("chartpanel").style.display = "block";
+            // document.getElementById("sidebar").style.display = "block";
+        // }
+    }); 
+    //    mobileintro.show()
     intro.show()
 
 
@@ -121,7 +131,16 @@ require([
 
     view.ui.add(legend, "top-left");
     view.ui.add(titleDiv, "top-right")
+    $(function() {      
+        let isMobile = window.matchMedia("only screen and (max-width: 760px)").matches;
+    
+        if (isMobile) {
+            //Conditional script here
+        // alert('Mobile');
+        mobileintro.show()
 
+    }
+     });    
     // time slider widget initialization
     const timeSlider = new TimeSlider({
         container: "timeSlider",

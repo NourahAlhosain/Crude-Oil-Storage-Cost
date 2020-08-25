@@ -148,7 +148,9 @@ input[type="radio"]{
   /* to remove layer title from legend */
   display: none;
 }
-
+.btn {
+  white-space: normal!important;
+}
 .dijitDialogPaneContent {
   /* margin: 2%; */
   background: #ffffff !important;
@@ -165,7 +167,9 @@ input[type="radio"]{
   padding: 3%;
   text-align: justify;
 }
-
+#mobileintro{
+  /* height: 100%; */
+}
 #introdialog {
   width: 60%;
   /* height: 60%; */
@@ -184,3 +188,28 @@ input[type="radio"]{
   margin-right: 2%;
 
 }
+@media only screen and (max-device-width:760px) {
+  /* show the popup */
+  /* div#popup { display: block; }
+   */
+   #introdialog {
+    width: 80%;
+  
+  }
+  #chartpanel {
+    width:60%;
+    min-width:215px; 
+    min-height: 115px;
+
+  }
+  #data-chart{
+    min-width:200px;
+  }
+  .dijitDialogPaneContent {
+    width: 90% !important;
+    height: 100%!important;
+  }
+  .dijitDialogTitleBar {
+    width: 90% !important;
+  }
+  }
